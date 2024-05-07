@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\projetos\MicroRTS_PY\MicroRTS_PY\nanobind\build\cp311-cp311-win_amd64\CMakeFiles\5026186b339ac40ed1f1f69d84d92da4\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{30153161-37B1-3A27-85AA-6371467498FE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

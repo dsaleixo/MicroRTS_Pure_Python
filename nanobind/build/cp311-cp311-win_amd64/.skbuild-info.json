@@ -1,0 +1,8 @@
+{
+  "source_dir": "C:\\projetos\\MicroRTS_PY\\MicroRTS_PY\\nanobind",
+  "build_dir": "C:\\projetos\\MicroRTS_PY\\MicroRTS_PY\\nanobind\\build\\cp311-cp311-win_amd64",
+  "cmake_path": "C:\\Users\\Gilmar Aleixo\\AppData\\Local\\Temp\\pip-build-env-h0m73dox\\normal\\Lib\\site-packages\\cmake\\data\\bin\\cmake",
+  "skbuild_path": "C:\\Users\\Gilmar Aleixo\\AppData\\Local\\Temp\\pip-build-env-h0m73dox\\overlay\\Lib\\site-packages\\scikit_build_core",
+  "skbuild_version": "0.9.2",
+  "python_executable": "C:\\miniconda3\\python.exe"
+}

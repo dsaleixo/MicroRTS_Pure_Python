@@ -1,0 +1,10 @@
+^C:\PROJETOS\MICRORTS_PY\MICRORTS_PY\NANOBIND\BUILD\CP311-CP311-WIN_AMD64\CMAKEFILES\5026186B339AC40ED1F1F69D84D92DA4\GENERATE.STAMP.RULE
+setlocal
+"C:\Users\Gilmar Aleixo\AppData\Local\Temp\pip-build-env-h0m73dox\normal\Lib\site-packages\cmake\data\bin\cmake.exe" -SC:/projetos/MicroRTS_PY/MicroRTS_PY/nanobind -BC:/projetos/MicroRTS_PY/MicroRTS_PY/nanobind/build/cp311-cp311-win_amd64 --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/projetos/MicroRTS_PY/MicroRTS_PY/nanobind/build/cp311-cp311-win_amd64/Cpp2Py.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

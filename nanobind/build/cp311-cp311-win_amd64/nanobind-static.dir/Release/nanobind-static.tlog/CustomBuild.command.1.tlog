@@ -1,0 +1,10 @@
+^C:\PROJETOS\MICRORTS_PY\MICRORTS_PY\NANOBIND\CMAKELISTS.TXT
+setlocal
+"C:\Users\Gilmar Aleixo\AppData\Local\Temp\pip-build-env-h0m73dox\normal\Lib\site-packages\cmake\data\bin\cmake.exe" -SC:/projetos/MicroRTS_PY/MicroRTS_PY/nanobind -BC:/projetos/MicroRTS_PY/MicroRTS_PY/nanobind/build/cp311-cp311-win_amd64 --check-stamp-file C:/projetos/MicroRTS_PY/MicroRTS_PY/nanobind/build/cp311-cp311-win_amd64/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

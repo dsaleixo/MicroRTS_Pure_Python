@@ -1,0 +1,5 @@
+C:/projetos/MicroRTS_PY/MicroRTS_PY/nanobind/build/cp311-cp311-win_amd64/CMakeFiles/Cpp2Py.dir
+C:/projetos/MicroRTS_PY/MicroRTS_PY/nanobind/build/cp311-cp311-win_amd64/CMakeFiles/nanobind-static.dir
+C:/projetos/MicroRTS_PY/MicroRTS_PY/nanobind/build/cp311-cp311-win_amd64/CMakeFiles/INSTALL.dir
+C:/projetos/MicroRTS_PY/MicroRTS_PY/nanobind/build/cp311-cp311-win_amd64/CMakeFiles/ALL_BUILD.dir
+C:/projetos/MicroRTS_PY/MicroRTS_PY/nanobind/build/cp311-cp311-win_amd64/CMakeFiles/ZERO_CHECK.dir

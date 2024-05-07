@@ -7,7 +7,7 @@ from Game.PlayerAction import PlayerAction
 from Game.UnitAction import UnitAction
 from Game.Unit import Unit
 from Game.UnitActionAssignment import UnitActionAssignment
-from Game.AStarPathFindingCPP import AStarPathFindingCPP
+from Game.AStarPathFinding import AStarPathFinding
 from Game.Player import Player
 from Game.ResourceUsage import ResourceUsage
 
@@ -32,7 +32,7 @@ class AbstractionLayerAI:
         self._tt3=0
         self._tt4=0
         
-        self._pf = AStarPathFindingCPP(pgs.getWidth(), pgs.getHeight())
+        self._pf = AStarPathFinding(pgs.getWidth(), pgs.getHeight())
     # In case the GameState is cloned, and the Unit pointers in the "actions" map change, this variable
     # saves a pointer to the previous GameState, if it's different than the current one, then we need to find a mapping
     # between the old units and the new ones

@@ -38,7 +38,7 @@ class Attack(AbstractAction):
      '''
 
     def toString(self):
-        return self._unit.toString() + " attack " + self._target.toString()
+        return self._unit.toSting() + " attack " + self._target.toString()
 
 
     def execute(self, gs : GameState,  ru: ResourceUsage)->UnitAction :

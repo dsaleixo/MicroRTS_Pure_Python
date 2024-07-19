@@ -19,19 +19,19 @@ class UnitType:
             self._name : str= ""
 
             #Cost to produce a unit of this type
-            self._cost : int  = 1;
+            self._cost : int  = 1
 
             #Initial Hit Points of units of this type
-            self._hp : int  = 1;
+            self._hp : int  = 1
 
             #Minimum damage of the attack from a unit of this type
-            self._minDamage : int  = 1;
+            self._minDamage : int  = 1
 
             # Maximum damage of the attack from a unit of this type
-            self._maxDamage : int  = 1;
+            self._maxDamage : int  = 1
 
             # Range of the attack from a unit of this type
-            self._attackRange : int  = 1;
+            self._attackRange : int  = 1
 
             #Time that each action takes to accomplish
             self._produceTime : int  = 10
@@ -81,6 +81,8 @@ class UnitType:
         def copy(self,  other ) :
             pass  
             
+        def getCost(self):
+            return self._cost
 
         def getCanMove(self) -> bool:
             return self._canMove

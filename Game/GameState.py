@@ -20,10 +20,10 @@ class GameState:
     def __init__(self, a_pgs:PhysicalGameState, a_utt:UnitTypeTable):
         self._unitCancelationCounter = 0#  // only used if the action conflict resolution strategy is set to alternating
 
-        self._time  :int = 0;
-        self._pgs : PhysicalGameState = a_pgs;
+        self._time  :int = 0
+        self._pgs : PhysicalGameState = a_pgs
         self._unitActions : dict[int,UnitActionAssignment]= {} #unordered_map<long, UnitActionAssignment> 
-        self._utt : UnitTypeTable = a_utt;
+        self._utt : UnitTypeTable = a_utt
         self._free  = np.zeros((self._pgs.getWidth(), self._pgs.getHeight()), dtype=bool)
         
         self.calculateFree()

@@ -17,26 +17,26 @@ class UnitAction:
     
    
     #The 'no-op' action
-    TYPE_NONE = 0;
+    TYPE_NONE = 0
     @staticmethod
     def getTYPE_NONE()->int:
         return UnitAction.TYPE_NONE
 
     #Action of moving
-    TYPE_MOVE = 1;
+    TYPE_MOVE = 1
     @staticmethod
     def  getTYPE_MOVE()->int:
         return UnitAction.TYPE_MOVE
 
 
     #Action of harvesting
-    TYPE_HARVEST = 2;
+    TYPE_HARVEST = 2
     @staticmethod
     def getTYPE_HARVEST()->int:
         return UnitAction.TYPE_HARVEST
 
     #Action of return to base with resource
-    TYPE_RETURN = 3;
+    TYPE_RETURN = 3
     @staticmethod
     def getTYPE_RETURN()->int:
         return UnitAction.getTYPE_RETURN

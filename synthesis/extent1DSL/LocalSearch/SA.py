@@ -40,7 +40,7 @@ class SA:
         ind_local = ind_handler.clone(ind,self._f)
         time_eval = time.time() - start_time
         print("actual\t"+str(time_eval)+"\t"+str(time_eval)+"\t"+str(sp.getN())+"\t"+str(score_local)+"\t"+ind_handler.toString(ind)+"\n")
-        log +="actual\t"+str(time_eval)+"\t"+str(time_eval)+"\t"+str(sp.getN())+"\t"+str(score_local)+"\t"+ind_handler.toString(ind)+"\n"
+        #log +="actual\t"+str(time_eval)+"\t"+str(time_eval)+"\t"+str(sp.getN())+"\t"+str(score_local)+"\t"+ind_handler.toString(ind)+"\n"
         count = 0
         while True:
             self._T = self._T0/(1+count*self._alpha)
@@ -57,7 +57,7 @@ class SA:
                 time_eval2 = time.time() - start_time2
                 time_eval3 = time.time() - start_time
                 print("actual\t"+str(time_eval3)+"\t"+str(time_eval2)+"\t"+str(sp.getN())+"\t"+str(result)+"\t"+ind_handler.toString(mutations[i])+"\n")
-                log += "actual\t"+str(time_eval3)+"\t"+str(time_eval2)+"\t"+str(sp.getN())+"\t"+str(result)+"\t"+ind_handler.toString(mutations[i])+"\n"
+                #log += "actual\t"+str(time_eval3)+"\t"+str(time_eval2)+"\t"+str(sp.getN())+"\t"+str(result)+"\t"+ind_handler.toString(mutations[i])+"\n"
                 time_eval = time.time() - start_time
                 if result > best_score_neighborhood:
                     
@@ -71,7 +71,8 @@ class SA:
             
             if best_score_neighborhood > score_best:
                 
-                log+="actual2\t"+ind_handler.toString(best_ind_neighborhood)+"\n"
+                log="actual2\t"+ind_handler.toString(best_ind_neighborhood)+"\n"
+                print(log)
                 score_best = best_score_neighborhood
                 ind = best_ind_neighborhood
             

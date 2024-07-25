@@ -54,9 +54,9 @@ class Test6:
             
             #gs2 = gs
             
-            gs2 = gs.clone()
-            print("dd")
-            pgs = gs2.getPhysicalGameState()
+            gs2 = gs.clone() # é importante sempre usar o clone, para não ter que criar um jogo do 0 novamnete e ter que ler de disco
+        
+            pgs = gs2.getPhysicalGameState() # caso precise de um pgs, voce pode pegar do gs2 ele é clonado junto com gs
             ai0 = CombatRush(pgs,utt,"Light")
             ai1 = CombatRush(pgs,utt,"Heavy")
             if exi :
@@ -64,8 +64,8 @@ class Test6:
             cont = 0
             show = False;
             
-            print(pgs.getWidth())
-            while not gs2.gameover() and cont<3000:
+
+            while not gs2.gameover() and cont<3000: # estrutura de playout
           
                 if show and exi   :
                     screen.draw()
@@ -74,7 +74,7 @@ class Test6:
                 #print("jogador0")
            
          
-                pa0 = ai0.getActions(gs2,0)
+                pa0 = ai0.getActions(gs2,0) #gera as ações
                 #print("jogador1")
                
                 
@@ -82,14 +82,14 @@ class Test6:
                 pa1 = ai1.getActions(gs2,1)
                 
               
-                show = gs2.updateScream()
+                show = gs2.updateScream() # fala se precisa atualizar a tela ou não, caso tenha alguma mudança no jogo
               
-                gs2.issueSafe(pa0)
+                gs2.issueSafe(pa0) # gs lê as mensagem ve se são validas e as salvas
         
                 gs2.issueSafe(pa1)
                 
                 
-                gs2.cycle()
+                gs2.cycle()#execulta as ações que estão prontas para ser execultadas
           
                 
                 cont+=1;
@@ -100,21 +100,21 @@ class Test6:
             
         @staticmethod
         def test(map):
-            utt = UnitTypeTable(2)
+            utt = UnitTypeTable(2) # esta variavel controla todos aspectos das unidade e deve ser criada somente uma por codigo
             
-            pgs = PhysicalGameState.load(map,utt)
+            pgs = PhysicalGameState.load(map,utt) # Le o mapa do xml
             print("dd")
-            gs = GameState(pgs,utt)
+            gs = GameState(pgs,utt) # manipula o pgs e administra as ações
             
           
-            process = psutil.Process()
+            process = psutil.Process() # era do teste de memoria
             ant = process.memory_info().rss/(1024*1024) # in bytes 
             ini = time.time()
             for i in range (10):
                 
                
                 ini0 = time.time()
-                print(Test6.test_aux(gs, utt,False))
+                print(Test6.test_aux(gs, utt,False)) #mude para True para ativar a interface
                
                 fim = time.time()
             

@@ -8,7 +8,7 @@ from ai.ai import AI
 class SimpleMatch:
     
     def playout(self,gs_a :GameState,ai0 : AI,ai1:AI,max_tick : int,show_scream:True)->int:
-        gs = gs_a
+        gs = gs_a.clone()
         ai0.resert()
         ai1.resert()
         pgs = gs.getPhysicalGameState()

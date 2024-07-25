@@ -15,7 +15,7 @@ class PlayerAction:
 
     def __init__(self):
         #A list of unit actions
-        self._actions : list[list[Unit,UnitAction]]= [] #vector<pair<Unit, UnitAction>> actions;
+        self._actions : list[tuple[Unit,UnitAction]]= [] #vector<pair<Unit, UnitAction>> actions;
    
         #Represents the resources used by the player action
         #TODO rename the field

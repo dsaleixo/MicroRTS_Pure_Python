@@ -70,6 +70,7 @@ class Harvest(ChildC,Node):
             
         if closestResource != None and closestBase != None:
             self._used = True
+            #print(u.toString(),closestResource.toString(),closestBase.toString())
             automata._core.harvest(u, closestResource, closestBase)
             automata._memory._freeUnit[u.getID()] = False
         

@@ -24,7 +24,7 @@ class Build_E1(Build):
         n.sample()
         self._n = n
         utype = Utype_E1()
-        utype.sample()
+        utype.sample("b")
         self._type = utype
         direc = Direction_E1()
         direc.sample()

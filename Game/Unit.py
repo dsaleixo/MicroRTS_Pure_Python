@@ -32,6 +32,9 @@ class Unit:
         self._type = a_type
         self._hitpoints = a_type._hp 
         
+    def clone(self):
+        return Unit(self._ID,self._player, self._type,self._x,self._y,self._resources )    
+        
     def __hash__(self):
         return int.__hash__(self._ID)
 

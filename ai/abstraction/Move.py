@@ -19,7 +19,7 @@ class Move(AbstractAction):
     
     
     def completed(self, gs) :
-        print("ssqqqq")
+    
         return self._unit.getX() == self._x and self._unit.getY() == self._y;
     
     '''

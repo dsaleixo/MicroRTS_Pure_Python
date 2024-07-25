@@ -45,7 +45,7 @@ class MoveToUnit(ChildC,Node):
         if u.getType().getCanMove() and u.getPlayer()==player and \
                             automata._memory._freeUnit[u.getID()] :
             u2 = self._op.getUnit(gs, p, u, automata)
-            print("ee",u.toString(),u2.toString())
+            
             if u2!=None :
                 pf =  automata._core._pf   
                 move = pf.findPathToPositionInRange(u, u2.getX() + u2.getY() * pgs.getWidth(),1, gs )

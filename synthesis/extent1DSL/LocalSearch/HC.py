@@ -1,7 +1,7 @@
 
 
 
-from MicroRTS_NB import GameState
+from Game.GameState import GameState
 from synthesis.baseDSL.mainBase.node import Node
 from synthesis.extent1DSL.LocalSearch.individuals.individual import Individual
 from synthesis.extent1DSL.mutation.mutation import Mutation

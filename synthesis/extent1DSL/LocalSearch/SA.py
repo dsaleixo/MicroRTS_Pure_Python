@@ -4,7 +4,7 @@
 import math
 import random
 
-from MicroRTS_NB import GameState
+from Game.GameState import GameState
 
 from selfPlay.selfPlay import SelfPlay
 from synthesis.extent1DSL.LocalSearch.individuals.individual import Individual

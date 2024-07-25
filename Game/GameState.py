@@ -29,6 +29,14 @@ class GameState:
         self.calculateFree()
         
 
+    def clone(self):#->GameState:
+        utt : UnitTypeTable = self.getUnitTypeTable()
+        pgs : PhysicalGameState = self.getPhysicalGameState().clone()
+        
+        gs : GameState = GameState(pgs,utt)
+        return gs
+        
+
     #Current game timestep (frames since beginning)
     def getTime(self)->int:
        return self._time

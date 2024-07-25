@@ -44,13 +44,13 @@ class Direction(AlmostTerminal):
         pgs = gs.getPhysicalGameState()
         height = pgs.getHeight() - 1
         width = pgs.getWidth() - 1
-        if self._direc == "Right" and (x+1) +(y)*width< height*width and (x+1) +(y)*width>= 0:
+        if self._direc == "Right" and 0<=x+1 < height and 0<=y<width:
             if gs.free(x+1,y):return UnitAction.getDIRECTION_RIGHT()
-        if self._direc == "Left" and  (x-1) +(y)*width< height*width and (x-1) +(y)*width>= 0:
+        if self._direc == "Left" and  0<=x-1 < height and 0<=y<width:
             if gs.free(x-1,y):return UnitAction.getDIRECTION_LEFT()
-        if self._direc == "Up" and (x) +(y-1)*width< height*width and (x) +(y-1)*width>= 0:
+        if self._direc == "Up" and 0<=x < height and 0<=y-1<width:
             if gs.free(x,y-1):return UnitAction.getDIRECTION_UP()
-        if self._direc == "Down" and  (x) +(y+1)*width< height*width and (x) +(y+1)*width>= 0:
+        if self._direc == "Down" and  0<=x-1 < height and 0<=y+1<width:
             if gs.free(x,y+1):return UnitAction.getDIRECTION_DOWN()
         
         if self._direc == "EnemyDir" :
@@ -90,7 +90,8 @@ class Direction(AlmostTerminal):
         distance = 0
         first = True
         #score is minus distance to closest resource
-        for u in pgs.getUnits(1-player).values():
+        for u in pgs.getUnits().values():
+            if u.getPlayer() == 1-player:
                 dx = abs(u.getX() - x) 
                 dy = abs(u.getY() - y)
                 d = dx*dx +dy*dy

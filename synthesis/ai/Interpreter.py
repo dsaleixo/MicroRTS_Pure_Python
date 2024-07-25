@@ -42,7 +42,7 @@ class Interpreter(AI):
 
         
     def resert(self):
-        pass
+        self._core.resert()
         
     def getActions(self,  gs:GameState, player:int) -> PlayerAction:
         self.resource = gs.getPlayer(player).getResources()
@@ -166,7 +166,6 @@ class Interpreter(AI):
         FarthestDistance = 1000000
         for u2 in pgs.getUnits().values():
             if  1-p.getID() == u2.getPlayer():
-                print("rr")
                 d = abs(u2.getX() - u.getX()) + abs(u2.getY() - u.getY())
                 if FarthestEnemy == None or d > FarthestDistance:
                     FarthestEnemy = u2

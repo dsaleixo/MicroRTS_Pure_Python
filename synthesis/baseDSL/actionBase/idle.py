@@ -38,10 +38,10 @@ class Idle(ChildC,Node):
         pgs = gs.getPhysicalGameState()
 		
         if u.getPlayer()==player  and automata._memory._freeUnit[u.getID()]  and u.getType().getCanAttack():
-            print("sss")
+      
             for  target in pgs.getUnits().values():
                 if 1-player == target.getPlayer():
-                    print("sss2")
+                 
                     dx = target.getX()-u.getX()
                     dy = target.getY()-u.getY()
                     d = (dx*dx+dy*dy)**0.5

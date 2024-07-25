@@ -2,7 +2,10 @@
 
 import random
 
-from MicroRTS_NB import GameState, PhysicalGameState, UnitTypeTable
+from Game.GameState import GameState
+from Game.UnitTypeTable import UnitTypeTable
+from Game.PhysicalGameState import PhysicalGameState
+
 from selfPlay.selfPlayDefault import SelfPlayDefault
 from synthesis.ai.Interpreter import Interpreter
 from synthesis.baseDSL.tests.scriptsToy import ScriptsToy
@@ -43,7 +46,7 @@ class SampleMutation():
             
     @staticmethod
     def test2():
-        map = "maps/basesWorkers24x24A.xml"
+        map = "./maps/basesWorkers32x32A.xml"
         max_tick = 3000
 
         utt = UnitTypeTable(2)
@@ -53,11 +56,12 @@ class SampleMutation():
         f = Factory_E1()
         s_empty = ScriptsToy.scriptEmpty()
         
-        sp = SelfPlayDefault(s_empty,1)
+        sp = SelfPlayDefault(1)
+        sp.update(s_empty)
         prog_current = sp.getBest().clone(f)
         score_current = sp.evaluate(prog_current,gs,max_tick)
         print(score_current,prog_current.translate())
-     
+        
         while True:
             
             for _ in range(30):
@@ -66,14 +70,16 @@ class SampleMutation():
                 mutation = prog_current.clone(Factory_E1())
                 l = []
                 mutation.countNode(l)
-                #print(mutation.translate())
+                print(mutation.translate())
                 #print(Control.save(mutation))
+              
                 no = l[0]
                 #print(Control.save(no))
                 no.mutation(15)
-                #print(Control.save(no))
-               # print(mutation.translate())
+                print(Control.save(no))
+                print(mutation.translate())
                 score = sp.evaluate(mutation,gs,max_tick)
+                
                 print("xxxxxxs")
                 print(prog_current.translate())
                 print(str(score)+" "+str(score_current), mutation.translate())

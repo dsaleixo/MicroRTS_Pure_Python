@@ -37,6 +37,25 @@ class PhysicalGameState :
         self._units :dict[int,Unit]= {}
    
 
+    def clone(self):
+        Unit.next_ID = 1224
+        w = self._width
+        h = self._height
+        terrain = np.zeros((w, h), dtype=np.int8)
+        for t in range(w*h):
+            terrain[int(t/w)][int(t%w)]= self._terrain[int(t/w)][int(t%w)]
+        
+        pgs = PhysicalGameState(w,h,terrain)  
+        for p in self._players:
+            pgs._players.append(Player(p.getID(), p.getResources()))
+        for u2 in self._units.values():
+            u = u2.clone()
+            pgs.addUnit(u)
+        return pgs
+            
+        
+       
+        
     
     #Constructs the game state map from a XML
     @staticmethod

@@ -7,7 +7,7 @@ from synthesis.extent1DSL.util.Factory_E1 import Factory_E1
 
 
 class Mutation1(Mutation):
-    
+    #adiciona um mutação no inicio do script
     def __init__(self):
         self._f = Factory_E1()
     

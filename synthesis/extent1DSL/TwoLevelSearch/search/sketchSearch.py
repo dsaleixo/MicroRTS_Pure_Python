@@ -58,7 +58,7 @@ class SketchSearch :
         self.oracle=oraculo
         self.time_ini = time.time()
         self.best_v : tuple[float,float] = (-1000.0,-1000.0)
-        self.mutation = Mutation2()
+        self.mutation = Mutation2() # a forma como a mutação é gerada, isso é importante. de uma olhada as mutações disponiveis
 		
     def  if_best(self,v1 :tuple[float,float],  v2 : tuple[float,float]) -> bool:
         if v2[0]>v1[0]:return True

@@ -18,7 +18,7 @@ class ScriptsTests(object):
     @staticmethod
     def test0():
         script = ScriptsToy.script1()
-        script0 = ScriptsToy.script7()
+        script0 = ScriptsToy.script3()
         print(script.translate())
         map = "./maps/basesWorkers32x32A.xml"
         utt = UnitTypeTable(2)
@@ -33,7 +33,7 @@ class ScriptsTests(object):
 
         
         sm = SimpleMatch()
-        win = sm.playout(gs,ai1,ai,7000,True)
+        win = sm.playout(gs,ai1,ai,0,7000,True)
         print("win =",win)
         #script.clear(None,Factory_E1())
         print(script.translate())
@@ -53,9 +53,9 @@ class ScriptsTests(object):
         f = Factory_Base()
         for s in scripts:
             print(s.translate())
-            trace = Control.save(s)
+            trace = Control.save(s) # salva o programa como str
             print(trace)
-            new = Control.load(trace,f)
+            new = Control.load(trace,f) # reconstroi o programa de um str
             print(new.translate())
             print()
             print()

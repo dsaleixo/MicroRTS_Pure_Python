@@ -9,7 +9,7 @@ from synthesis.extent1DSL.util.Factory_E1 import Factory_E1
 
 
 class Mutation2(Mutation):
-    
+    #combina as outras mutações
     def __init__(self):
         self._f = Factory_E1()
         self.m0 = Mutation0()

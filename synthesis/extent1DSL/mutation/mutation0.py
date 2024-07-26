@@ -7,7 +7,7 @@ from synthesis.extent1DSL.util.Factory_E1 import Factory_E1
 import random
 
 class Mutation0(Mutation):
-    
+    # seleciona um simbolo aleatoriamente e modificar ele
     def __init__(self):
         self._f = Factory_E1()
     

@@ -17,8 +17,7 @@ class OpponentPolicy(AlmostTerminal):
         return ["Strongest",
 		        "Weakest",
 		        "Closest",
-		        "Farthest",
-		        "LessHealthy",
+                "LessHealthy",
 		        "MostHealthy"]
     
     @classmethod

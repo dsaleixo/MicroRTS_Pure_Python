@@ -108,7 +108,7 @@ class SketchSearch :
             for p in progs:  
                 
                 v2 = self.ava.evaluation(gs,max_cicle,p,self.oracle,self.l1)
-                #print("\t"+str(v2[0])+" "+str(v2[1])+" "+p.translate())
+                print("\t"+str(v2[0])+" "+str(v2[1])+" "+p.translate())
                 if self.if_best2(v_neighbor,v2):
                     if self.use_cleanr or True :p.clear(None, self.f)
                     best_neighbor = p.clone(self.f)
@@ -160,8 +160,9 @@ class SketchSearch :
             v_neighbor  : tuple[float,float]=(-1.0,-1.0)
             progs = self.mutation.getMutations(atual,10)
             for p in progs:  
+                print("\t"+p.translate())
                 v2:  tuple[float,float] = self.ava.evaluation(gs, max_cicle,p,self.oracle,self.l1);
-				#//System.out.println("\t"+v2.m_a+" "+v2.m_b+" "+aux.translate());
+                print("\t"+str(v2[0])+" "+str(v2[1])+" "+p.translate())
                 if self.if_best(v_neighbor,v2):
                     if self.use_cleanr:p.clear(None, self.f)
                     best_neighbor =  p.clone(self.f);

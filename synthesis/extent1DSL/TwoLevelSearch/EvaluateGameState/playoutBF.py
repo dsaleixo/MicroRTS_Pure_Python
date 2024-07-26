@@ -36,7 +36,7 @@ class PlayoutBF:
             aux_time = time.time()
             pa0 :  PlayerAction =ai0.getActions(gs2,player)
             stop = time.time()- aux_time
-            if(stop>0.070):return (-1.0, BehavioralFeature())
+            if(stop>0.050):return (-1.0, BehavioralFeature())
             pa1 : PlayerAction=ai1.getActions( gs2,1-player)
             eval.evaluate(pa0, player)
             gs2.issueSafe(pa0)

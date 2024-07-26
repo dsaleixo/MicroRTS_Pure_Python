@@ -22,13 +22,16 @@ class For_S_E1(For_S):
     def __init__(self, s : S=None):
         self._s = s
         
-    def sample(self):
+    def sample(self,budget):
         from synthesis.extent1DSL.extent1Main.s_E1 import S_E1
         s = S_E1()
-        s.sample()
+        s.sample(4)
         self._s = s
         
     def countNode(self,l : list[Node]):
         l.append(self)
         self._s.countNode(l)
+    
+    def mutation(self,bugdet):
+        self._s.mutation(bugdet)
         

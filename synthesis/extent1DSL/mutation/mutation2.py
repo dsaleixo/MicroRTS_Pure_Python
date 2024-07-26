@@ -20,6 +20,6 @@ class Mutation2(Mutation):
     
     def getMutations(self, prog, n_mutation) -> list[Node]:
         aux = self.r()
-        if aux <0.3: return self.m0.getMutations(prog, n_mutation)
-        elif aux < 0.75 :return self.m1.getMutations(prog, n_mutation)
+        if aux <0.7: return self.m0.getMutations(prog, n_mutation)
+        elif aux < 0.85 :return self.m1.getMutations(prog, n_mutation)
         else : return self.m3.getMutations(prog, n_mutation)

@@ -19,7 +19,7 @@ class TestSketchSearch:
     
     @staticmethod
     def test():
-        l1 = NaiveSampling(0.3,0.3,0.6,3)
+        l1 = NaiveSampling(0.3,0.3,0.6,3) # para o level 1 da busca CMAB, ele gera um vetor de caracteristas
         clear =True
         jj  = S_E1( Empty_E1())
         T0 =2000 
@@ -41,7 +41,7 @@ class TestSketchSearch:
 
     @staticmethod
     def test0():
-        l1 = NaiveSampling(0.3,0.3,0.6,3)
+        l1 = NaiveSampling(0.3,0.3,0.6,13) 
         clear =True
         jj  = S_E1( Empty_E1())
         T0 =2000 

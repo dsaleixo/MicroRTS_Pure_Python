@@ -46,7 +46,7 @@ class SketchSearch :
         self.SA_activation = sa_act
         self.l1=l1
         self.f =  Factory_E1()
-        self.use_cleanr = clear
+        self.use_cleanr = clear #limpar o script de comandos qeu não foram usados
         self.limit_cloning = limite_tempo
         self.T0=T0
         self.alpha = alpha
@@ -197,9 +197,11 @@ class SketchSearch :
         self.best_v = self.ava.evaluation(gs, max_cicle, self.best,self.oracle,self.l1)
         print("atual2\t0.0"+"\t"+str(self.best_v[0])+"\t"+str(self.best_v[1])+"\t"+
 						Control.save(self.best)+"\t")
-        print("SearchSketch")
+        print("SearchSketch")#eu separarei em dois codigos para facilitar a manutenção, mas diferença é que não primera busca
+        # não olhamos o numero de vitorias apenas o quando é similar ao vetor de caracteristas
         n : Node=	self.SearchSketch(gs, max_cicle)
-        print("SearchBR")
+        print("SearchBR")#olhamos o numero de vitorias e depois no numero de caracteristas 
+        
 		#//l1.update(null, this.oraculo, this.best_v.m_a);
         return self.SearchBR(gs, max_cicle,n)
 

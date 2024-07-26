@@ -18,7 +18,7 @@ class BehavioralCloning :
 	
 	
     def __init__(self, tempo : int, T0 : float,  alpha : float,  beta :float,  sa_act : bool) :
-        self.SA_activation = sa_act
+        self.SA_activation = sa_act # se colocar falso a busca vira HC
         print("Busca CCB")
         self.tempo_limite=tempo
         self.T0_inicial = T0

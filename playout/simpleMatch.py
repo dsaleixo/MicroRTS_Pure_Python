@@ -27,7 +27,8 @@ class SimpleMatch:
             aux_time = time.time()
             pa0 :  PlayerAction =ai0.getActions(gs,player)
             stop = time.time()- aux_time
-            if(stop>0.070):return -1.0
+            
+            if(stop>0.050):return -1.0
             pa1 = ai1.getActions(gs,1 -player)
             if show_scream:show = gs.updateScream()
               

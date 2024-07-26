@@ -55,6 +55,9 @@ class S(Node,NoTerminal):
     
     
     def interpret(self,gs : GameState, player:int, u : Unit, automata :Interpreter) -> None:
+        if u!=None:
+            if automata._memory._freeUnit[u.getID()] == False:
+                return
         self._childS.interpret( gs,player,u,automata)
    
    

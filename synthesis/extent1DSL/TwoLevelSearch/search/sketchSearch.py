@@ -104,7 +104,7 @@ class SketchSearch :
             T = self.T0/(1+cont*self.alpha)
             best_neighbor = None 
             v_neighbor : tuple[float,float]=  (-1111.0,-1111.0)
-            progs = self.mutation.getMutations(atual,5)
+            progs = self.mutation.getMutations(atual,10)
             for p in progs:  
                 
                 v2 = self.ava.evaluation(gs,max_cicle,p,self.oracle,self.l1)
@@ -158,7 +158,7 @@ class SketchSearch :
             T = self.T0/(1+cont*self.alpha)
             best_neighbor = None 
             v_neighbor  : tuple[float,float]=(-1.0,-1.0)
-            progs = self.mutation.getMutations(atual,5)
+            progs = self.mutation.getMutations(atual,10)
             for p in progs:  
                 v2:  tuple[float,float] = self.ava.evaluation(gs, max_cicle,p,self.oracle,self.l1);
 				#//System.out.println("\t"+v2.m_a+" "+v2.m_b+" "+aux.translate());

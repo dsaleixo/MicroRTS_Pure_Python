@@ -121,7 +121,7 @@ class NaiveSampling :
             return self.exploreSA();
 
     def  exploreSA(self)->Feature1: 
-        aux : int = randint(len(self.M)-1)
+        aux : int = randint(0,len(self.M)-1)
         for nov in self.M.keys():
             if aux==0 :return nov
             aux-=1

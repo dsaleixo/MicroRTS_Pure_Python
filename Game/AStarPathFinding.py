@@ -57,9 +57,13 @@ class AStarPathFinding:
          self._cost[startPos] = 0;
          self._openinsert+=1
 
-
+         cont=0
          while self._openinsert > 0:
-
+             cont+=1
+             dx= abs(start.getX()-targetx )
+             dy =abs(start.getY()-targety )
+             if cont > (dx+dy)*2:
+                 return  UnitAction.build_None()
              self._openinsert-=1
              pos : int  = self._open[self._openinsert];
              parent : int = self._parents[self._openinsert];

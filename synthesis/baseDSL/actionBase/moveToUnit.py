@@ -50,7 +50,14 @@ class MoveToUnit(ChildC,Node):
                 pf =  automata._core._pf   
                 move = pf.findPathToPositionInRange(u, u2.getX() + u2.getY() * pgs.getWidth(),1, gs )
                 if move!=None:
-                    automata._core.move(u, u2.getX(), u2.getY())
+                    x=u.getX()
+                    y=u.getY()
+                    if move.getDirection() == move.getDIRECTION_DOWN():y+=1
+                    if move.getDirection() == move.getDIRECTION_UP():y-=1
+                    if move.getDirection() == move.getDIRECTION_LEFT():x-=1
+                    if move.getDirection() == move.getDIRECTION_RIGHT():x+=1
+                    self._used = True
+                    automata._core.move(u, x, y)
                     self._used = True
                     automata._memory._freeUnit[u.getID()] = False
 			

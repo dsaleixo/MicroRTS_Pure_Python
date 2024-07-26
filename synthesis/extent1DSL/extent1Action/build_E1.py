@@ -21,7 +21,7 @@ class Build_E1(Build):
         
     def sample(self):
         n = N_E1()
-        n.sample()
+        n.sample("b")
         self._n = n
         utype = Utype_E1()
         utype.sample("b")

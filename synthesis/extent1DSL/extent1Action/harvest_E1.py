@@ -18,7 +18,7 @@ class Harvest_E1(Harvest):
         
     def sample(self):
         n = N_E1()
-        n.sample()
+        n.sample("h")
         self._n = n
         
          

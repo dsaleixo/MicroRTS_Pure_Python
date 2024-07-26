@@ -13,7 +13,9 @@ class N(AlmostTerminal):
         self._n = n
     
     
-    def rules(self):#->list[str]:
+    def rules(self,act=None):#->list[str]:
+        if act == "b" or act =="h":
+            return ["1","2","3"]
         return ["0",
 		        "1",
 		        "2",

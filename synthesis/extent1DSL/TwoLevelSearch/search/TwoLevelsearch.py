@@ -12,7 +12,7 @@ class TwoLevelsearch:
 
 	
     def __init__(self) :
-        self.ava=EvaluatorSP(1,FeatureFactory1()); # 1 = BestREsponde inf = FictionPlay, recomento usar 2 ou 3, mas para ser rapido mellhor deixar 1
+        self.ava=EvaluatorSP(3,FeatureFactory1()); # 1 = BestREsponde inf = FictionPlay, recomento usar 2 ou 3, mas para ser rapido mellhor deixar 1
         self.l1 = NaiveSampling(0.3,0.3,0.6,3) # para o level 1 da busca CMAB, ele gera um vetor de caracteristas
         #os paramentos são a probablidade de exploitar ou explorar
         self.l2 =  BehavioralCloning(1000,2000,0.9,0.5,True);#paramentos do SA,T0,alpha e beta
@@ -23,8 +23,9 @@ class TwoLevelsearch:
     def run(self, gs : GameState, max :int) ->None:
         while(True):
             seed : tuple[Feature1, Node] = self.l1.getSeed(); #pega um vetor de caracteristisca
-            #oraculo = Feature1(BehavioralFeature(1,5,0,0,0,1,20))
-            #seed = (oraculo, self.ava.getBest())
+            print("Selecionado: "+seed[0].toString())
+            oraculo = Feature1(BehavioralFeature(2,7,7,7,0,1,10))
+            seed = (oraculo, self.l1.getScript(seed[0]))
             print("xxxxxxxxxxxxxxx")
             print(self.l1.imprimir())
             print("Selecionado: "+seed[0].toString())

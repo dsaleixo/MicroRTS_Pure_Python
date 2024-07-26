@@ -12,8 +12,8 @@ class N_E1(N):
     def __init__(self,n=None) -> None:
         self._n = n
         
-    def sample(self)->None:
-        rules = self.rules()
+    def sample(self,act=None)->None:
+        rules = self.rules(act)
         r = random.randint(0,len(rules) - 1)
         self._n = rules[r]
         

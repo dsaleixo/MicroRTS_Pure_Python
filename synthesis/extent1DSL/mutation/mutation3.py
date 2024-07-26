@@ -17,9 +17,6 @@ class Mutation3(Mutation):
             mutation = prog.clone(self._f)
             s = S_E1()
             s.sample(5)
-            l= []
-            mutation.countNode(l)
-            no = l[0]
-            no.mutation(15)
+            
             l_progs.append(S_E1(S_S_E1(mutation,s)))
         return l_progs

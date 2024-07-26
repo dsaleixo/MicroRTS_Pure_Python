@@ -65,7 +65,7 @@ class S_E1(S):
             
     def mutation(self,bugdet):
         n = self._childS
-        if random.random() <= 0.2:
+        if random.random() <= 0.75:
             self.sample(bugdet)
         else:
             self.sample2(bugdet,n)

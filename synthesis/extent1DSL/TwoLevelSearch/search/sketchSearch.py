@@ -94,7 +94,7 @@ class SketchSearch :
 	
 	
     def SearchSketch(self, gs : GameState,  max_cicle : int)->Node :
-        atual =  S_E1( Empty_E1())
+        atual =  self.best.clone(self.f)
         v  : tuple[float,float]= (-1.0,-1.0)
         Tini = time.time()
         paraou = time.time()-Tini

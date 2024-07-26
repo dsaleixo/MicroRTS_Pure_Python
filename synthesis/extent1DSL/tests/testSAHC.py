@@ -29,15 +29,17 @@ class TestSAHC:
         sp.update(s_empty)
         max_tick = 3000
         f = Factory_E1()
-        #search = HC()
-        search = SA(2000,0.9,0.5)
+        search = HC()
+        #search = SA(2000,0.9,0.5)
         ind = Individual_Default( Mutation2())
         time0 =800
         start_time = time.time()
         while True:
             
             prog = sp.getIndividual().clone(f)
+            
             r1 = sp.evaluate(prog,gs,max_tick )
+            
             prog_result, r0, log = search.run(prog,gs,sp,ind,5,time0,max_tick)
             
             if r0 > r1:

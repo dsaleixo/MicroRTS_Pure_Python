@@ -53,6 +53,7 @@ class SA:
             best_ind_neighborhood = mutations[0]
             for i  in  range(1,n_neighborhood):
                 start_time2 = time.time()
+                print(mutations[i].translate())
                 result = ind_handler.evaluate(mutations[i],gs,max_time,self._f,sp)
                 time_eval2 = time.time() - start_time2
                 time_eval3 = time.time() - start_time
@@ -62,6 +63,7 @@ class SA:
                 if result > best_score_neighborhood:
                     
                     best_score_neighborhood = result
+                    mutations[i].clear(None,self._f)
                     best_ind_neighborhood = mutations[i]
               
               

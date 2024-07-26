@@ -32,6 +32,7 @@ class HC:
             mutations = ind_handler.getNeighborhood(ind,n_neighborhood)
             best_score_neighborhood = ind_handler.evaluate(mutations[0],gs,max_time,self._f,sp)
             best_ind_neighborhood = mutations[0]
+            print(mutations[0].translate())
             for i  in  range(1,n_neighborhood):
                 start_time2 = time.time()
                 print(mutations[i].translate())
@@ -43,6 +44,7 @@ class HC:
                 time_eval = time.time() - start_time
                 if result > best_score_neighborhood:
                     best_score_neighborhood = result
+                    mutations[i].clear(None,self._f)
                     best_ind_neighborhood = mutations[i]
                     
             

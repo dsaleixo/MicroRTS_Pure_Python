@@ -50,8 +50,8 @@ class SelfPlayDefault(SelfPlay):
       
         for n2 in self._progs:
             a2 = Interpreter(gs.getPhysicalGameState(),utt,For_S(n2))
-            score += self.winToScore(0,self._sm.playout(gs,a1,a2,max_tick,False) )
-            score += self.winToScore(1,self._sm.playout(gs,a2,a1,max_tick,False) )
+            score += self.winToScore(0,self._sm.playout(gs,a1,a2,0,max_tick,False) )
+            score += self.winToScore(1,self._sm.playout(gs,a1,a2,1,max_tick,False) )
             self._n_count += 1 
         return score/(2*len(self._progs))
     

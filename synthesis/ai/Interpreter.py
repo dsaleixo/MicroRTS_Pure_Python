@@ -152,7 +152,7 @@ class Interpreter(AI):
         closestEnemy = None
         closestDistance = 0
         for  u2 in pgs.getUnits().values():
-            if  1-p.getID() == u2.getPlayer():
+            if  1-p.getID() == u2.getPlayer()and u.getID() != u2.getID():
                 d = abs(u2.getX() - u.getX()) + abs(u2.getY() - u.getY())
                 if closestEnemy == None or d < closestDistance:
                     closestEnemy = u2
@@ -165,7 +165,7 @@ class Interpreter(AI):
         FarthestEnemy = None
         FarthestDistance = 1000000
         for u2 in pgs.getUnits().values():
-            if  1-p.getID() == u2.getPlayer():
+            if  1-p.getID() == u2.getPlayer()and u.getID() != u2.getID():
                 d = abs(u2.getX() - u.getX()) + abs(u2.getY() - u.getY())
                 if FarthestEnemy == None or d > FarthestDistance:
                     FarthestEnemy = u2
@@ -180,7 +180,7 @@ class Interpreter(AI):
         Healthy = 10000
         
         for   u2 in pgs.getUnits().values():
-            if    1-p.getID() == u2.getPlayer():
+            if    1-p.getID() == u2.getPlayer()and u.getPlayer() == u2.getPlayer():
                 d = abs(u2.getX() - u.getX()) + abs(u2.getY() - u.getY())
                 if closestHealthy == None  or  Healthy > u2.getMaxHitPoints():
                     Healthy = u2.getMaxHitPoints()
@@ -204,7 +204,7 @@ class Interpreter(AI):
         
         
         for  u2 in pgs.getUnits().values():
-            if  1-p.getID() == u2.getPlayer():
+            if  1-p.getID() == u2.getPlayer() and u.getID() != u2.getID():
                 d = abs(u2.getX() - u.getX()) + abs(u2.getY() - u.getY())
                 if closestStrongest == None or Strongest < u2.getMaxDamage():
                     Strongest = u2.getMaxDamage()
@@ -231,7 +231,7 @@ class Interpreter(AI):
         Healthy = 0
     
         for  u2 in pgs.getUnits().values() :
-            if  1-p.getID() == u2.getPlayer():
+            if  1-p.getID() == u2.getPlayer()and u.getID() != u2.getID():
                 d = abs(u2.getX() - u.getX()) + abs(u2.getY() - u.getY())
                 if closestHealthy == None or Healthy < u2.getMaxHitPoints():
                     Healthy = u2.getMaxHitPoints()
@@ -254,7 +254,7 @@ class Interpreter(AI):
         
         
         for  u2 in pgs.getUnits().values(): 
-            if  1-p.getID() == u2.getPlayer():
+            if  1-p.getID() == u2.getPlayer()and u.getID() != u2.getID():
                 d = abs(u2.getX() - u.getX()) + abs(u2.getY() - u.getY())
                 if closestWeakest == None or Weakest > u2.getMaxDamage():
                     Weakest = u2.getMaxDamage()

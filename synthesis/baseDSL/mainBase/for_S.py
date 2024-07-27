@@ -74,7 +74,7 @@ class For_S(ChildS,Node):
     def clear(self,father:Node, f : Factory) -> Node:
         
         if isinstance(self._s._childS, For_S):
-            self._s = self._s._childS
+            self._s = f.build_S(self._s._childS)
 		
         childwasuse = self._s.clear(self,f)
         if not childwasuse:				

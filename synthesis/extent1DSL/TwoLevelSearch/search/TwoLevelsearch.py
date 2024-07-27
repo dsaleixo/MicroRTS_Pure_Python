@@ -24,7 +24,7 @@ class TwoLevelsearch:
         while(True):
             seed : tuple[Feature1, Node] = self.l1.getSeed(); #pega um vetor de caracteristisca
             print("Selecionado: "+seed[0].toString())
-            oraculo = Feature1(BehavioralFeature(2,7,7,7,0,1,10))
+            oraculo = Feature1(BehavioralFeature(4,7,7,7,0,1,10))
             seed = (oraculo, self.l1.getScript(seed[0]))
             print("xxxxxxxxxxxxxxx")
             print(self.l1.imprimir())

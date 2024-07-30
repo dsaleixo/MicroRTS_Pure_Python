@@ -17,32 +17,32 @@ class BehavioralCloning :
 	
 	
 	
-    def __init__(self, tempo : int, T0 : float,  alpha : float,  beta :float,  sa_act : bool) :
+    def __init__(self, time0 : int, T0 : float,  alpha : float,  beta :float,  sa_act : bool) :
         self.SA_activation = sa_act # se colocar falso a busca vira HC
-        print("Busca CCB")
-        self.tempo_limite=tempo
-        self.T0_inicial = T0
-        self.alpha_inicial= alpha
-        self.beta_inicial = beta
-        self.T0 = self.T0_inicial
-        self.alpha = self.alpha_inicial
-        self.beta = self.beta_inicial
+        print("Search CCB")
+        self.limit_time=time0
+        self.T0_initial = T0
+        self.alpha_initial= alpha
+        self.beta_initial = beta
+        self.T0 = self.T0_initial
+        self.alpha = self.alpha_initial
+        self.beta = self.beta_initial
 
 
 	
 	
-    def  run(self, gs : GameState,  max : int,  j :Node, nov : Feature1,  ava : EvaluatorSP, l1 : NaiveSampling) -> Node:
+    def  run(self, gs : GameState,  max : int,  j :Node, feature : Feature1,  eval : EvaluatorSP, l1 : NaiveSampling) -> Node:
         self.resert()
-        print("busca "+nov.toString());
-        se : SketchSearch =  SketchSearch(l1,True,j,self.T0,self.alpha,self.beta,False,nov,ava,self.tempo_limite,self.SA_activation);
+        print("search "+feature.toString());
+        se : SketchSearch =  SketchSearch(l1,True,j,self.T0,self.alpha,self.beta,False,feature,eval,self.limit_time,self.SA_activation);
         n : Node =se.run(gs, max, 0)
         return n
 	
 	
 
     def  resert(self) ->Node:
-        self.T0 = self.T0_inicial
-        self.alpha = self.alpha_inicial
-        self.beta = self.beta_inicial
+        self.T0 = self.T0_initial
+        self.alpha = self.alpha_initial
+        self.beta = self.beta_initial
 	
 	

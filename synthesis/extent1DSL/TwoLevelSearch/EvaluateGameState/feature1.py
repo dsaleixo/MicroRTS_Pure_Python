@@ -48,14 +48,14 @@ class Feature1:
 	    }
 	'''
 	def  Clone(self) ->Feature1 :
-		nov1 : Feature1=  Feature1()
+		feature1 : Feature1=  Feature1()
 		for i in range(7):
-			nov1.v[i]=self.v[i]
-		return nov1
+			feature1.v[i]=self.v[i]
+		return feature1
 
 
 
-	def semelhaca(self, n :Feature1)->float :
+	def similarity(self, n :Feature1)->float :
 		cont=0
 		for i in range(7):
 			cont+=1-((1.0*abs( self.v[i]-n.v[i])) /max(max(self.v[i],n.v[i]),1))	

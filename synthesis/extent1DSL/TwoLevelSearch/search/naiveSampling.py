@@ -23,7 +23,7 @@ class NaiveSampling :
 	int n_arms=7;
 	double desc= 0.95;
 	int opt=13;
-	long T_inicial;
+	long T_initial;
 	int[] v_opt = {0,1,2,3,4,5,7,10,15,20,25,35,50};
 	String[] name_arm= {"W  ","L  ","R  ","H  ","Ba ","Br ","Re "};
 	Map<Integer,Integer> map;
@@ -36,18 +36,18 @@ class NaiveSampling :
 	TreeMap<Feature,String> Backup;
 	FeatureFactory fn;
     '''
-    def __init__(self,e0 : float,  el : float,  eg : float ,  troca :int) :
+    def __init__(self,e0 : float,  el : float,  eg : float ,  change :int) :
         self.n_arms : int=7
-        self.desc : float= 0.95
+        self.disc : float= 0.95
         self.opt : int =13
      
         self.v_opt : list[int]= [0,1,2,3,4,5,7,10,15,20,25,35,50]
         self.name_arm  : list[str]= ["W  ","L  ","R  ","H  ","Ba ","Br ","Re "]
-        self.change_NS = troca
+        self.change_NS = change # troca os paramettros de exploração
         self.map : dict[int,int]= {}
         for i in range(self.opt):
             self.map[self.v_opt[i]]=i
-        self.T_inicial = time.time()
+        self.T_initial = time.time()
    
         self.e0 = e0
         self.el = el
@@ -69,7 +69,7 @@ class NaiveSampling :
 
 
 
-    def imprimir(self) -> str:
+    def toString(self) -> str:
         s=""
         for i in range(self.n_arms):
             s += self.name_arm[i]
@@ -80,7 +80,7 @@ class NaiveSampling :
         best = self.exploitSA()
       
         if not best == None:
-            s+="Mellhor: "+best.toString()+"\n"
+            s+="Best: "+best.toString()+"\n"
         return s
 
     def toString2(self):
@@ -94,12 +94,12 @@ class NaiveSampling :
         return self.v_opt[aux]
 
     def  exploitX(self, i: int)->int :
-        maior : float =-1111
+        larger : float =-1111
         index : int=-1
         for j in range(self.opt):
             if self.TiVik[i][j]==0:continue
-            if self.MiVik[i][j]>maior:
-                maior= self.MiVik[i][j]
+            if self.MiVik[i][j]>larger:
+                larger= self.MiVik[i][j]
                 index = j
         if index==-1:return self.exploreX(i)
         return self.v_opt[index];
@@ -128,49 +128,49 @@ class NaiveSampling :
         return None
 
     def  exploitSA(self) ->Feature1:
-        nov : Feature1=None
-        maior=-1111111
+        feature : Feature1=None
+        larger=-1111111
         for m in self.M.items():
-            if m[1]>maior :
-                nov = m[0]
-                maior = m[1]
-        return nov
+            if m[1]>larger :
+                feature = m[0]
+                larger = m[1]
+        return feature
 
-    def  getScript(self, nov : Feature1) ->Node:
-        maior =-1
-        melhor="S;Empty";
+    def  getScript(self, feature : Feature1) ->Node:
+        larger =-1
+        best="S;Empty";
         seed : Feature1= self.fn.create();
-        print("guia "+nov.toString())
+        print("guide "+feature.toString())
         for m in self.Backup.items():
 	
 			#//System.out.println("\t "+nov.semelhaca(m.getKey())+" "+m.getKey()+" "+ m.getValue());
-            if nov.semelhaca(m[0])>maior :
-                maior = nov.semelhaca(m[0])
-                melhor = m[1]
+            if feature.similarity(m[0])>larger :
+                larger = feature.similarity(m[0])
+                best = m[1]
                 seed =m[0]
-        print("Mais Proximo "+seed.toString(),melhor)
-        return Control.load(melhor, Factory_E1())
+        print("closest "+seed.toString(),best)
+        return Control.load(best, Factory_E1())
 
 	
     def getSeed(self)->tuple[Feature1, Node] :
-        paraou = time.time()-self.T_inicial;
-        if paraou*1.0 >self.change_NS*3600:
+        stopped = time.time()-self.T_initial;
+        if stopped*1.0 >self.change_NS*3600:
             self.e0 = 0.9
             self.el = 0.7
             self.eg = 0.9
 
-        nov = None;
+        feature = None;
         if random() <self.e0 and len(self.T)!=0:
-            nov= self.exploit()
+            feature= self.exploit()
         else:
-            nov= self.explore()
-        if len(self.T)!=0:self.desconto()
-        return (nov,self.getScript(nov))
+            feature= self.explore()
+        if len(self.T)!=0:self.discount()
+        return (feature,self.getScript(feature))
 
 
 	
-    def update(self, j : Node,  nov : Feature1,  reward : float) ->Node:
-        l = self.converte(nov).v
+    def update(self, j : Node,  feature : Feature1,  reward : float) ->Node:
+        l = self.convert(feature).v
 
         for i in range(self.n_arms):
             aux = self.map[l[i]];
@@ -180,49 +180,49 @@ class NaiveSampling :
             else:
                 self.MiVik[i][aux]=(self.MiVik[i][aux]*self.TiVik[i][aux]+reward)/(self.TiVik[i][aux]+1)
                 self.TiVik[i][aux]+=1;
-        if nov in self.T:
-            T_aux=self.T[nov]
-            M_aux= self.M[nov];
+        if feature in self.T:
+            T_aux=self.T[feature]
+            M_aux= self.M[feature];
             aux = (M_aux*T_aux+reward)/(T_aux+1);
-            self.T[nov] = 1+T_aux
-            self.M[nov] = aux
+            self.T[feature] = 1+T_aux
+            self.M[feature] = aux
         else :
-            self.T[nov] = 1
-            self.M[nov] = reward
-        self.Backup[nov] =  Control.save(j)
+            self.T[feature] = 1
+            self.M[feature] = reward
+        self.Backup[feature] =  Control.save(j)
 
 
 
     def getFN(self) ->FeatureFactory1:
         return self.fn
     def closestArm(self, i: int)->int:
-        maior =10000;
+        larger =10000;
         index=-1;
         for j in range(self.opt):
             aux = abs(i-self.v_opt[j])
-            if aux<maior :
-                maior=aux;
+            if aux<larger :
+                larger=aux;
                 index=j
         return self.v_opt[index];
 
 
-    def  converte(self, nov : Feature1) ->Feature1:
-        w = self.closestArm(nov.v[0])
-        l = self.closestArm(nov.v[1])
-        r =self.closestArm(nov.v[2])
-        h =self.closestArm(nov.v[3])
-        ba =self.closestArm(nov.v[4])
-        br =self.closestArm(nov.v[5])
-        re= self.closestArm(nov.v[6])
+    def  convert(self, feature : Feature1) ->Feature1:
+        w = self.closestArm(feature.v[0])
+        l = self.closestArm(feature.v[1])
+        r =self.closestArm(feature.v[2])
+        h =self.closestArm(feature.v[3])
+        ba =self.closestArm(feature.v[4])
+        br =self.closestArm(feature.v[5])
+        re= self.closestArm(feature.v[6])
         return self.fn.create( BehavioralFeature(w,l,r,h,ba,br,re));
 	
-    def  desconto(self)->None: 
+    def  discount(self)->None: 
         for m in self.M.keys():
-            self.M[m]=self.M[m]*self.desc
+            self.M[m]=self.M[m]*self.disc
         for i in range(self.n_arms):
             for j in range(self.opt):
                 if self.MiVik[i][j]!=None:
-                    self.MiVik[i][j]=self.MiVik[i][j]*self.desc;
+                    self.MiVik[i][j]=self.MiVik[i][j]*self.disc;
 				
 
 

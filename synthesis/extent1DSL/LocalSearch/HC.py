@@ -27,7 +27,7 @@ class HC:
         score_current = ind_handler.evaluate(ind,gs,max_time,self._f,sp)
         time_eval = time.time() - start_time
         #log+="actual\t"+str(time_eval)+"\t"+str(time_eval)+"\t"+str(sp.getN())+"\t"+ind_handler.toString(ind)+"\n"
-        print("actual\t"+str(time_eval)+"\t"+str(time_eval)+"\t"+str(sp.getN())+"\t"+ind_handler.toString(ind)+"\n")
+        print("current\t"+str(time_eval)+"\t"+str(time_eval)+"\t"+str(sp.getN())+"\t"+ind_handler.toString(ind)+"\n")
         while True:
             mutations = ind_handler.getNeighborhood(ind,n_neighborhood)
             best_score_neighborhood = ind_handler.evaluate(mutations[0],gs,max_time,self._f,sp)
@@ -40,7 +40,7 @@ class HC:
                 time_eval2 = time.time() - start_time2
                 time_eval3 = time.time() - start_time
                 #log+="actual\t"+str(time_eval3)+"\t"+str(time_eval2)+"\t"+str(sp.getN())+"\t"+str(result)+"\t"+ind_handler.toString(mutations[i])+"\n"
-                print("actual\t"+str(time_eval3)+"\t"+str(time_eval2)+"\t"+str(sp.getN())+"\t"+str(result)+"\t"+ind_handler.toString(mutations[i])+"\n")
+                print("current\t"+str(time_eval3)+"\t"+str(time_eval2)+"\t"+str(sp.getN())+"\t"+str(result)+"\t"+ind_handler.toString(mutations[i])+"\n")
                 time_eval = time.time() - start_time
                 if result > best_score_neighborhood:
                     best_score_neighborhood = result
@@ -50,7 +50,7 @@ class HC:
             
             if best_score_neighborhood > score_current:
                 #log+="actual2\t"+str(best_score_neighborhood)+"\n"
-                print("actual2\t"+str(best_score_neighborhood)+"\n")
+                print("current2\t"+str(best_score_neighborhood)+"\n")
                 score_current = best_score_neighborhood
                 ind = best_ind_neighborhood
             

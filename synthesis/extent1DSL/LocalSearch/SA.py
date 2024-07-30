@@ -39,7 +39,7 @@ class SA:
         score_best=score_local = ind_handler.evaluate(ind,gs,max_time,self._f,sp)
         ind_local = ind_handler.clone(ind,self._f)
         time_eval = time.time() - start_time
-        print("actual\t"+str(time_eval)+"\t"+str(time_eval)+"\t"+str(sp.getN())+"\t"+str(score_local)+"\t"+ind_handler.toString(ind)+"\n")
+        print("current\t"+str(time_eval)+"\t"+str(time_eval)+"\t"+str(sp.getN())+"\t"+str(score_local)+"\t"+ind_handler.toString(ind)+"\n")
         #log +="actual\t"+str(time_eval)+"\t"+str(time_eval)+"\t"+str(sp.getN())+"\t"+str(score_local)+"\t"+ind_handler.toString(ind)+"\n"
         count = 0
         while True:
@@ -73,7 +73,7 @@ class SA:
             
             if best_score_neighborhood > score_best:
                 
-                log="actual2\t"+ind_handler.toString(best_ind_neighborhood)+"\n"
+                log="current\t"+ind_handler.toString(best_ind_neighborhood)+"\n"
                 print(log)
                 score_best = best_score_neighborhood
                 ind = best_ind_neighborhood
